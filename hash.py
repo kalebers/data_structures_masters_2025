@@ -32,10 +32,16 @@ def gerar_registros(n):
 # -------------------------------
 def hash_func1(key, M):
     """Soma dos valores ASCII dos caracteres"""
+    "Mostrar a forma mais basica possivel, por gerar muitos"
+    "agrupamentos quando chaves tem mesmos caracteres."
+    "Serve como baseline"
     return sum(ord(c) for c in key) % M
 
 def hash_func2(key, M):
     """Hash polinomial base 31"""
+    "Por 31 ser um número primo, ajuda na dispersão dos valores."
+    "Sendo assim, tem melhor distribuição que a soma simples."
+    "Pode concentrar colisões se as chaves tiverem padrões semelhantes."
     h = 0
     for c in key:
         h = (31 * h + ord(c)) % M
@@ -43,6 +49,11 @@ def hash_func2(key, M):
 
 def hash_func3(key, M):
     """Multiplicative Hashing (Knuth)"""
+    "Ideia de mostrar como se fosse uma matricula de 9 digitos. "
+    "Multiplica por um numero irracional porque ajuda espalhar os números deforma"
+    "uniforme no espaço de hashing."
+    "A ideia é que a multiplicação por um número irracional ajuda a evitar padrões."
+    "Precisa que a chave seja tratada como número"
     A = 0.6180339887
     k = int(key)
     return int(M * ((k * A) % 1))
@@ -127,6 +138,20 @@ def mostrar_big_o(N, M):
     print("Onde N/M é o tamanho médio de cada lista (bucket).")
     print("Se a função hash for boa e M for grande, espera-se O(1) para operações.")
 
+def salvar_resultados_txt(resultados, filename="resultados_hash.txt"):
+    with open(filename, "w") as f:
+        for res in resultados:
+            N = res["N"]
+            M = res["M"]
+            funcao = res["funcao"]
+            f.write(f"Experimento: N={N}, M={M}, Função={funcao}\n")
+            f.write(f"Resultados: {res}\n")
+            f.write("--- Notação Big O ---\n")
+            f.write(f"  Melhor caso: O(1)\n")
+            f.write(f"  Pior caso: O({N})\n")
+            f.write(f"  Caso médio: O({round(N/M, 2)})\n")
+            f.write("\n")
+
 # -------------------------------
 # Main
 # -------------------------------
@@ -144,9 +169,11 @@ if __name__ == "__main__":
     for N in N_values:
         for M in M_values:
             for nome, func in hash_functions.items():
-                print(f"\n🔹 Rodando experimento N={N}, M={M}, {nome}")
+                print(f"\n - Rodando experimento N={N}, M={M}, {nome}")
                 res = rodar_experimento(N, M, func, rodadas=5)
                 res.update({"N": N, "M": M, "funcao": nome})
                 resultados.append(res)
                 print(res)
-            mostrar_big_o(N, M) 
+            mostrar_big_o(N, M)
+
+    salvar_resultados_txt(resultados)
