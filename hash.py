@@ -1,5 +1,9 @@
-# TODO: Falta Notacao Big O
+# TODO: Falta Notacao Big O (conferir se está correto - valores parecem estar iguais em todas iteracoes)
  # O que é M? M é o tamanho da tabela hash (número de buckets)
+ # O que é N? N é o número de elementos na tabela hash
+ # O que é tempo_dp? tempo_dp é o desvio padrão do tempo de execução das operações na tabela hash.
+ # o que é colisoes_dp? colisoes_dp é o desvio padrão do número de colisões ocorridas durante as operações na tabela hash.
+ 
 
 
 import random
