@@ -1,187 +1,187 @@
 Experimento: N=10000, M=100, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 9940.4, 'colisoes_dp': 1.8547236990991407, 'load_media': 100.0, 'tempo_medio': 0.11409335136413574, 'tempo_dp': 0.019113120151239074, 'memoria_media_MB': 20.946875, 'cpu_time_medio': 0.08051179999999997, 'N': 10000, 'M': 100, 'funcao': 'Hash1 (ASCII sum)'}
+Resultados: {'colisoes_media': 9940.8, 'colisoes_dp': 2.039607805437114, 'load_media': 100.0, 'tempo_medio': 0.07411580085754395, 'tempo_dp': 0.007262287213869069, 'memoria_media_MB': 20.49296875, 'cpu_time_medio': 0.0716032, 'N': 10000, 'M': 100, 'funcao': 'Hash1 (ASCII sum)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(10000)
   Caso médio: O(100.0)
 
 Experimento: N=10000, M=100, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 9900, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 0.21254658699035645, 'tempo_dp': 0.012991928311314616, 'memoria_media_MB': 22.5171875, 'cpu_time_medio': 0.1671096, 'N': 10000, 'M': 100, 'funcao': 'Hash2 (Polinomial)'}
+Resultados: {'colisoes_media': 9900, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 0.1644359588623047, 'tempo_dp': 0.012543053297673596, 'memoria_media_MB': 21.76015625, 'cpu_time_medio': 0.15467440000000002, 'N': 10000, 'M': 100, 'funcao': 'Hash2 (Polinomial)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(10000)
   Caso médio: O(100.0)
 
 Experimento: N=10000, M=100, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 9900, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 0.12880864143371581, 'tempo_dp': 0.07368989783931416, 'memoria_media_MB': 22.67734375, 'cpu_time_medio': 0.05587159999999978, 'N': 10000, 'M': 100, 'funcao': 'Hash3 (Multiplicative)'}
+Resultados: {'colisoes_media': 9900, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 0.05730605125427246, 'tempo_dp': 0.006429721510776738, 'memoria_media_MB': 22.58671875, 'cpu_time_medio': 0.05321939999999996, 'N': 10000, 'M': 100, 'funcao': 'Hash3 (Multiplicative)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(10000)
   Caso médio: O(100.0)
 
 Experimento: N=10000, M=1000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 9939.8, 'colisoes_dp': 1.7204650534085253, 'load_media': 10.0, 'tempo_medio': 0.10001239776611329, 'tempo_dp': 0.014077025629287261, 'memoria_media_MB': 22.83359375, 'cpu_time_medio': 0.07960340000000006, 'N': 10000, 'M': 1000, 'funcao': 'Hash1 (ASCII sum)'}
+Resultados: {'colisoes_media': 9939.4, 'colisoes_dp': 1.019803902718557, 'load_media': 10.0, 'tempo_medio': 0.07980480194091796, 'tempo_dp': 0.00392670322633218, 'memoria_media_MB': 22.87734375, 'cpu_time_medio': 0.07673920000000001, 'N': 10000, 'M': 1000, 'funcao': 'Hash1 (ASCII sum)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(10000)
   Caso médio: O(10.0)
 
 Experimento: N=10000, M=1000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 9000.2, 'colisoes_dp': 0.4, 'load_media': 10.0, 'tempo_medio': 0.2552324295043945, 'tempo_dp': 0.02108242172700264, 'memoria_media_MB': 22.83984375, 'cpu_time_medio': 0.2048342, 'N': 10000, 'M': 1000, 'funcao': 'Hash2 (Polinomial)'}
+Resultados: {'colisoes_media': 9000, 'colisoes_dp': 0.0, 'load_media': 10.0, 'tempo_medio': 0.23553214073181153, 'tempo_dp': 0.06795251159560373, 'memoria_media_MB': 22.9140625, 'cpu_time_medio': 0.2013772000000002, 'N': 10000, 'M': 1000, 'funcao': 'Hash2 (Polinomial)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(10000)
   Caso médio: O(10.0)
 
 Experimento: N=10000, M=1000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 9000, 'colisoes_dp': 0.0, 'load_media': 10.0, 'tempo_medio': 0.07721500396728516, 'tempo_dp': 0.020225581891701046, 'memoria_media_MB': 22.90234375, 'cpu_time_medio': 0.05915020000000002, 'N': 10000, 'M': 1000, 'funcao': 'Hash3 (Multiplicative)'}
+Resultados: {'colisoes_media': 9000, 'colisoes_dp': 0.0, 'load_media': 10.0, 'tempo_medio': 0.08011527061462402, 'tempo_dp': 0.023299963721802885, 'memoria_media_MB': 22.9421875, 'cpu_time_medio': 0.059473999999999985, 'N': 10000, 'M': 1000, 'funcao': 'Hash3 (Multiplicative)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(10000)
   Caso médio: O(10.0)
 
 Experimento: N=10000, M=5000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 9940.8, 'colisoes_dp': 1.7204650534085253, 'load_media': 2.0, 'tempo_medio': 0.10811123847961426, 'tempo_dp': 0.024282983511401124, 'memoria_media_MB': 23.06171875, 'cpu_time_medio': 0.08266459999999984, 'N': 10000, 'M': 5000, 'funcao': 'Hash1 (ASCII sum)'}
+Resultados: {'colisoes_media': 9940.2, 'colisoes_dp': 0.7483314773547883, 'load_media': 2.0, 'tempo_medio': 0.1010282039642334, 'tempo_dp': 0.027044618411563116, 'memoria_media_MB': 23.06171875, 'cpu_time_medio': 0.09011580000000023, 'N': 10000, 'M': 5000, 'funcao': 'Hash1 (ASCII sum)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(10000)
   Caso médio: O(2.0)
 
 Experimento: N=10000, M=5000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 5678, 'colisoes_dp': 21.890637268019404, 'load_media': 2.0, 'tempo_medio': 0.3235311985015869, 'tempo_dp': 0.046003920906866946, 'memoria_media_MB': 23.61640625, 'cpu_time_medio': 0.2236586000000001, 'N': 10000, 'M': 5000, 'funcao': 'Hash2 (Polinomial)'}
+Resultados: {'colisoes_media': 5689.8, 'colisoes_dp': 19.446336415890784, 'load_media': 2.0, 'tempo_medio': 0.23903317451477052, 'tempo_dp': 0.03981738755415543, 'memoria_media_MB': 23.75234375, 'cpu_time_medio': 0.21193159999999994, 'N': 10000, 'M': 5000, 'funcao': 'Hash2 (Polinomial)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(10000)
   Caso médio: O(2.0)
 
 Experimento: N=10000, M=5000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 5675.6, 'colisoes_dp': 26.612778885340028, 'load_media': 2.0, 'tempo_medio': 0.0781020164489746, 'tempo_dp': 0.004016117833121889, 'memoria_media_MB': 23.65703125, 'cpu_time_medio': 0.06676900000000022, 'N': 10000, 'M': 5000, 'funcao': 'Hash3 (Multiplicative)'}
+Resultados: {'colisoes_media': 5667, 'colisoes_dp': 18.253766734567417, 'load_media': 2.0, 'tempo_medio': 0.07084360122680664, 'tempo_dp': 0.02012573589647897, 'memoria_media_MB': 23.8546875, 'cpu_time_medio': 0.06332999999999984, 'N': 10000, 'M': 5000, 'funcao': 'Hash3 (Multiplicative)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(10000)
   Caso médio: O(2.0)
 
 Experimento: N=50000, M=100, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 49934.4, 'colisoes_dp': 1.019803902718557, 'load_media': 500.0, 'tempo_medio': 0.4589959144592285, 'tempo_dp': 0.029451825555855137, 'memoria_media_MB': 50.746875, 'cpu_time_medio': 0.38479279999999993, 'N': 50000, 'M': 100, 'funcao': 'Hash1 (ASCII sum)'}
+Resultados: {'colisoes_media': 49934.4, 'colisoes_dp': 1.3564659966250536, 'load_media': 500.0, 'tempo_medio': 0.3992018222808838, 'tempo_dp': 0.03955586029465269, 'memoria_media_MB': 50.4234375, 'cpu_time_medio': 0.3799253999999994, 'N': 50000, 'M': 100, 'funcao': 'Hash1 (ASCII sum)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(50000)
   Caso médio: O(500.0)
 
 Experimento: N=50000, M=100, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 49900, 'colisoes_dp': 0.0, 'load_media': 500.0, 'tempo_medio': 1.0107598304748535, 'tempo_dp': 0.07147986724856385, 'memoria_media_MB': 48.49296875, 'cpu_time_medio': 0.8215676000000002, 'N': 50000, 'M': 100, 'funcao': 'Hash2 (Polinomial)'}
+Resultados: {'colisoes_media': 49900, 'colisoes_dp': 0.0, 'load_media': 500.0, 'tempo_medio': 0.9615351676940918, 'tempo_dp': 0.2128835051865698, 'memoria_media_MB': 48.56015625, 'cpu_time_medio': 0.8121522000000002, 'N': 50000, 'M': 100, 'funcao': 'Hash2 (Polinomial)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(50000)
   Caso médio: O(500.0)
 
 Experimento: N=50000, M=100, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 49900, 'colisoes_dp': 0.0, 'load_media': 500.0, 'tempo_medio': 0.3318110466003418, 'tempo_dp': 0.030593318067473053, 'memoria_media_MB': 50.65, 'cpu_time_medio': 0.28321559999999907, 'N': 50000, 'M': 100, 'funcao': 'Hash3 (Multiplicative)'}
+Resultados: {'colisoes_media': 49900, 'colisoes_dp': 0.0, 'load_media': 500.0, 'tempo_medio': 0.27208847999572755, 'tempo_dp': 0.01611664274977999, 'memoria_media_MB': 50.0984375, 'cpu_time_medio': 0.2671568000000001, 'N': 50000, 'M': 100, 'funcao': 'Hash3 (Multiplicative)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(50000)
   Caso médio: O(500.0)
 
 Experimento: N=50000, M=1000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 49935, 'colisoes_dp': 1.4142135623730951, 'load_media': 50.0, 'tempo_medio': 0.7329165458679199, 'tempo_dp': 0.32268341882487095, 'memoria_media_MB': 54.1703125, 'cpu_time_medio': 0.4501660000000001, 'N': 50000, 'M': 1000, 'funcao': 'Hash1 (ASCII sum)'}
+Resultados: {'colisoes_media': 49934.4, 'colisoes_dp': 1.8547236990991407, 'load_media': 50.0, 'tempo_medio': 0.40965566635131834, 'tempo_dp': 0.021892606603685357, 'memoria_media_MB': 54.134375, 'cpu_time_medio': 0.39721819999999963, 'N': 50000, 'M': 1000, 'funcao': 'Hash1 (ASCII sum)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(50000)
   Caso médio: O(50.0)
 
 Experimento: N=50000, M=1000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 49000, 'colisoes_dp': 0.0, 'load_media': 50.0, 'tempo_medio': 1.5886184215545653, 'tempo_dp': 0.39918914685394435, 'memoria_media_MB': 57.4046875, 'cpu_time_medio': 1.076566599999999, 'N': 50000, 'M': 1000, 'funcao': 'Hash2 (Polinomial)'}
+Resultados: {'colisoes_media': 49000, 'colisoes_dp': 0.0, 'load_media': 50.0, 'tempo_medio': 1.0551275253295898, 'tempo_dp': 0.12294416104752247, 'memoria_media_MB': 56.37578125, 'cpu_time_medio': 0.9833982000000006, 'N': 50000, 'M': 1000, 'funcao': 'Hash2 (Polinomial)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(50000)
   Caso médio: O(50.0)
 
 Experimento: N=50000, M=1000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 49000, 'colisoes_dp': 0.0, 'load_media': 50.0, 'tempo_medio': 0.4918655872344971, 'tempo_dp': 0.18251366405985894, 'memoria_media_MB': 57.32578125, 'cpu_time_medio': 0.32968639999999994, 'N': 50000, 'M': 1000, 'funcao': 'Hash3 (Multiplicative)'}
+Resultados: {'colisoes_media': 49000, 'colisoes_dp': 0.0, 'load_media': 50.0, 'tempo_medio': 0.3631737232208252, 'tempo_dp': 0.06105716684198993, 'memoria_media_MB': 57.434375, 'cpu_time_medio': 0.33456640000000065, 'N': 50000, 'M': 1000, 'funcao': 'Hash3 (Multiplicative)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(50000)
   Caso médio: O(50.0)
 
 Experimento: N=50000, M=5000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 49934.4, 'colisoes_dp': 1.2, 'load_media': 10.0, 'tempo_medio': 0.5715114116668701, 'tempo_dp': 0.05260955730354388, 'memoria_media_MB': 55.85234375, 'cpu_time_medio': 0.4459538000000009, 'N': 50000, 'M': 5000, 'funcao': 'Hash1 (ASCII sum)'}
+Resultados: {'colisoes_media': 49933.8, 'colisoes_dp': 0.9797958971132712, 'load_media': 10.0, 'tempo_medio': 0.40747928619384766, 'tempo_dp': 0.026652704791989192, 'memoria_media_MB': 55.828125, 'cpu_time_medio': 0.39690200000000003, 'N': 50000, 'M': 5000, 'funcao': 'Hash1 (ASCII sum)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(50000)
   Caso médio: O(10.0)
 
 Experimento: N=50000, M=5000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 45000.2, 'colisoes_dp': 0.4, 'load_media': 10.0, 'tempo_medio': 2.113343524932861, 'tempo_dp': 0.613921768208538, 'memoria_media_MB': 58.2578125, 'cpu_time_medio': 1.1440039999999996, 'N': 50000, 'M': 5000, 'funcao': 'Hash2 (Polinomial)'}
+Resultados: {'colisoes_media': 45000.8, 'colisoes_dp': 0.4, 'load_media': 10.0, 'tempo_medio': 1.0465015411376952, 'tempo_dp': 0.022884748754756275, 'memoria_media_MB': 59.5578125, 'cpu_time_medio': 1.0269354000000006, 'N': 50000, 'M': 5000, 'funcao': 'Hash2 (Polinomial)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(50000)
   Caso médio: O(10.0)
 
 Experimento: N=50000, M=5000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 45000.6, 'colisoes_dp': 0.4898979485566356, 'load_media': 10.0, 'tempo_medio': 0.7898479461669922, 'tempo_dp': 0.3527837993725027, 'memoria_media_MB': 57.059375, 'cpu_time_medio': 0.39945479999999944, 'N': 50000, 'M': 5000, 'funcao': 'Hash3 (Multiplicative)'}
+Resultados: {'colisoes_media': 45000, 'colisoes_dp': 0.0, 'load_media': 10.0, 'tempo_medio': 0.3876500606536865, 'tempo_dp': 0.10038228855965285, 'memoria_media_MB': 58.3796875, 'cpu_time_medio': 0.3637962000000002, 'N': 50000, 'M': 5000, 'funcao': 'Hash3 (Multiplicative)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(50000)
   Caso médio: O(10.0)
 
 Experimento: N=100000, M=100, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 99932.8, 'colisoes_dp': 0.7483314773547883, 'load_media': 1000.0, 'tempo_medio': 1.5284518241882323, 'tempo_dp': 0.48884527550198575, 'memoria_media_MB': 95.32109375, 'cpu_time_medio': 0.8971861999999987, 'N': 100000, 'M': 100, 'funcao': 'Hash1 (ASCII sum)'}
+Resultados: {'colisoes_media': 99932.8, 'colisoes_dp': 1.1661903789690602, 'load_media': 1000.0, 'tempo_medio': 0.7756392478942871, 'tempo_dp': 0.04147486020572121, 'memoria_media_MB': 94.9359375, 'cpu_time_medio': 0.7563069999999982, 'N': 100000, 'M': 100, 'funcao': 'Hash1 (ASCII sum)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(100000)
   Caso médio: O(1000.0)
 
 Experimento: N=100000, M=100, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 99900, 'colisoes_dp': 0.0, 'load_media': 1000.0, 'tempo_medio': 2.2630823612213136, 'tempo_dp': 0.08148749754168708, 'memoria_media_MB': 80.703125, 'cpu_time_medio': 1.6904968000000025, 'N': 100000, 'M': 100, 'funcao': 'Hash2 (Polinomial)'}
+Resultados: {'colisoes_media': 99900, 'colisoes_dp': 0.0, 'load_media': 1000.0, 'tempo_medio': 1.6001800537109374, 'tempo_dp': 0.0907059111089664, 'memoria_media_MB': 83.02109375, 'cpu_time_medio': 1.5387798000000004, 'N': 100000, 'M': 100, 'funcao': 'Hash2 (Polinomial)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(100000)
   Caso médio: O(1000.0)
 
 Experimento: N=100000, M=100, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 99900, 'colisoes_dp': 0.0, 'load_media': 1000.0, 'tempo_medio': 1.0416482448577882, 'tempo_dp': 0.33537196151769466, 'memoria_media_MB': 81.69765625, 'cpu_time_medio': 0.6546376000000009, 'N': 100000, 'M': 100, 'funcao': 'Hash3 (Multiplicative)'}
+Resultados: {'colisoes_media': 99900, 'colisoes_dp': 0.0, 'load_media': 1000.0, 'tempo_medio': 0.803251838684082, 'tempo_dp': 0.22946590045247606, 'memoria_media_MB': 85.07265625, 'cpu_time_medio': 0.6394209999999987, 'N': 100000, 'M': 100, 'funcao': 'Hash3 (Multiplicative)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(100000)
   Caso médio: O(1000.0)
 
 Experimento: N=100000, M=1000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 99932.6, 'colisoes_dp': 0.4898979485566356, 'load_media': 100.0, 'tempo_medio': 1.1784773826599122, 'tempo_dp': 0.2049512826652371, 'memoria_media_MB': 94.8734375, 'cpu_time_medio': 0.9150891999999999, 'N': 100000, 'M': 1000, 'funcao': 'Hash1 (ASCII sum)'}
+Resultados: {'colisoes_media': 99933.2, 'colisoes_dp': 1.1661903789690602, 'load_media': 100.0, 'tempo_medio': 0.885974931716919, 'tempo_dp': 0.03353475767810643, 'memoria_media_MB': 98.16875, 'cpu_time_medio': 0.8492729999999995, 'N': 100000, 'M': 1000, 'funcao': 'Hash1 (ASCII sum)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(100000)
   Caso médio: O(100.0)
 
 Experimento: N=100000, M=1000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 99000, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 3.430433416366577, 'tempo_dp': 0.5500914898721488, 'memoria_media_MB': 90.96484375, 'cpu_time_medio': 2.2999786, 'N': 100000, 'M': 1000, 'funcao': 'Hash2 (Polinomial)'}
+Resultados: {'colisoes_media': 99000, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 2.146893548965454, 'tempo_dp': 0.16835522981255363, 'memoria_media_MB': 89.45703125, 'cpu_time_medio': 1.984943599999997, 'N': 100000, 'M': 1000, 'funcao': 'Hash2 (Polinomial)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(100000)
   Caso médio: O(100.0)
 
 Experimento: N=100000, M=1000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 99000, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 0.9109287738800049, 'tempo_dp': 0.18027086978432086, 'memoria_media_MB': 99.25390625, 'cpu_time_medio': 0.6907040000000023, 'N': 100000, 'M': 1000, 'funcao': 'Hash3 (Multiplicative)'}
+Resultados: {'colisoes_media': 99000, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 0.6486051559448243, 'tempo_dp': 0.012447381240049587, 'memoria_media_MB': 96.9953125, 'cpu_time_medio': 0.6270814000000001, 'N': 100000, 'M': 1000, 'funcao': 'Hash3 (Multiplicative)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(100000)
   Caso médio: O(100.0)
 
 Experimento: N=100000, M=5000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 99932.6, 'colisoes_dp': 1.019803902718557, 'load_media': 20.0, 'tempo_medio': 1.1461600303649901, 'tempo_dp': 0.0946261695160609, 'memoria_media_MB': 91.0796875, 'cpu_time_medio': 0.9089560000000034, 'N': 100000, 'M': 5000, 'funcao': 'Hash1 (ASCII sum)'}
+Resultados: {'colisoes_media': 99932.8, 'colisoes_dp': 1.6, 'load_media': 20.0, 'tempo_medio': 0.8493381023406983, 'tempo_dp': 0.0516511107655162, 'memoria_media_MB': 91.55625, 'cpu_time_medio': 0.8321373999999991, 'N': 100000, 'M': 5000, 'funcao': 'Hash1 (ASCII sum)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(100000)
   Caso médio: O(20.0)
 
 Experimento: N=100000, M=5000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 95000, 'colisoes_dp': 0.0, 'load_media': 20.0, 'tempo_medio': 4.487542200088501, 'tempo_dp': 2.3981952011173626, 'memoria_media_MB': 98.0015625, 'cpu_time_medio': 2.3243484000000025, 'N': 100000, 'M': 5000, 'funcao': 'Hash2 (Polinomial)'}
+Resultados: {'colisoes_media': 95000, 'colisoes_dp': 0.0, 'load_media': 20.0, 'tempo_medio': 2.2609346389770506, 'tempo_dp': 0.3042798528845171, 'memoria_media_MB': 99.896875, 'cpu_time_medio': 2.1039838000000004, 'N': 100000, 'M': 5000, 'funcao': 'Hash2 (Polinomial)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(100000)
   Caso médio: O(20.0)
 
 Experimento: N=100000, M=5000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 95000, 'colisoes_dp': 0.0, 'load_media': 20.0, 'tempo_medio': 2.1387352466583254, 'tempo_dp': 1.079357848223595, 'memoria_media_MB': 98.5578125, 'cpu_time_medio': 0.794700400000005, 'N': 100000, 'M': 5000, 'funcao': 'Hash3 (Multiplicative)'}
+Resultados: {'colisoes_media': 95000, 'colisoes_dp': 0.0, 'load_media': 20.0, 'tempo_medio': 0.6857183456420899, 'tempo_dp': 0.024615964624630483, 'memoria_media_MB': 96.14765625, 'cpu_time_medio': 0.6723131999999964, 'N': 100000, 'M': 5000, 'funcao': 'Hash3 (Multiplicative)'}
 --- Notação Big O ---
   Melhor caso: O(1)
   Pior caso: O(100000)
