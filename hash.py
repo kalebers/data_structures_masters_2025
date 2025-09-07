@@ -1,11 +1,9 @@
-# TODO: Falta Notacao Big O (conferir se está correto - valores parecem estar iguais em todas iteracoes)
+# Implementação de Tabela Hash com Encadeamento Separado
  # O que é M? M é o tamanho da tabela hash (número de buckets)
  # O que é N? N é o número de elementos na tabela hash
  # O que é tempo_dp? tempo_dp é o desvio padrão do tempo de execução das operações na tabela hash.
  # o que é colisoes_dp? colisoes_dp é o desvio padrão do número de colisões ocorridas durante as operações na tabela hash.
  
-
-
 import random
 import string
 import time
@@ -14,166 +12,226 @@ import psutil
 import os
 import statistics
 
-# -------------------------------
-# Gerador de dados fictícios
-# -------------------------------
 def gerar_registros(n):
+    """
+    Gera uma lista de registros fictícios com 'n' elementos.
+    Cada registro é uma tupla (chave, valor), onde a chave é uma matrícula
+    única de 9 dígitos e o valor é um dicionário com nome, salário e setor.
+    """
     registros = []
+    # Estamos usando um set para garantir que as matrículas (chaves) sejam únicas,
+    # evitando problemas de duplicação durante os testes.
+    matriculas_geradas = set()
     for _ in range(n):
         matricula = ''.join(random.choices(string.digits, k=9))
+        while matricula in matriculas_geradas:
+            matricula = ''.join(random.choices(string.digits, k=9))
+        matriculas_geradas.add(matricula)
         nome = ''.join(random.choices(string.ascii_uppercase, k=7))
         salario = round(random.uniform(1500, 20000), 2)
         setor = random.randint(1, 100)
         registros.append((matricula, {"nome": nome, "salario": salario, "setor": setor}))
     return registros
 
-# -------------------------------
-# Funções Hash
-# -------------------------------
+
 def hash_func1(key, M):
-    """Soma dos valores ASCII dos caracteres"""
-    "Mostrar a forma mais basica possivel, por gerar muitos"
-    "agrupamentos quando chaves tem mesmos caracteres."
-    "Serve como baseline"
+    """
+    Função Hash 1: Soma dos valores ASCII dos caracteres.
+    Uma função simples e serve como linha de base. Pode gerar muitas colisões,
+    especialmente com chaves que têm os mesmos caracteres rearranjados.
+    """
     return sum(ord(c) for c in key) % M
 
 def hash_func2(key, M):
-    """Hash polinomial base 31"""
-    "Por 31 ser um número primo, ajuda na dispersão dos valores."
-    "Sendo assim, tem melhor distribuição que a soma simples."
-    "Pode concentrar colisões se as chaves tiverem padrões semelhantes."
+    """
+    Função Hash 2: Hash polinomial base 31.
+    Usamos um número primo (31) para ajudar a dispersar melhor os valores,
+    reduzindo o número de colisões em comparação com a soma simples.
+    """
     h = 0
     for c in key:
         h = (31 * h + ord(c)) % M
     return h
 
 def hash_func3(key, M):
-    """Multiplicative Hashing (Knuth)"""
-    "Ideia de mostrar como se fosse uma matricula de 9 digitos. "
-    "Multiplica por um numero irracional porque ajuda espalhar os números deforma"
-    "uniforme no espaço de hashing."
-    "A ideia é que a multiplicação por um número irracional ajuda a evitar padrões."
-    "Precisa que a chave seja tratada como número"
-    A = 0.6180339887
+    """
+    Função Hash 3: Hashing Multiplicativo (Knuth).
+    Esta função é ideal para chaves que são números. Multiplica a chave por
+    um número irracional para espalhar os valores uniformemente no espaço de hashing,
+    o que é muito eficaz para evitar padrões de dados que causem colisões.
+    Obs: A chave deve ser convertida para inteiro, ou seja, se for string, deve ser numérica.
+    """
+    A = 0.6180339887  # Constante irracional (proporção áurea)
     k = int(key)
     return int(M * ((k * A) % 1))
 
-# -------------------------------
-# Estrutura da Tabela Hash
-# -------------------------------
 class HashTable:
+    """
+    Implementação da Tabela Hash usando encadeamento separado para tratar colisões.
+    Esta classe não usa bibliotecas prontas, conforme exigido pelo trabalho.
+    """
     def __init__(self, M, hash_func):
+        """
+        Inicializa a tabela hash com um tamanho 'M' e uma função hash.
+        A tabela é uma lista de listas (buckets), onde cada sub-lista
+        armazenará os itens que colidem no mesmo índice.
+        """
         self.M = M
         self.table = [[] for _ in range(M)]
         self.hash_func = hash_func
-        self.colisoes = 0
         self.insercoes = 0
 
     def insert(self, key, value):
+        """
+        Insere um par (chave, valor) na tabela hash.
+        Calcula o índice usando a função hash e adiciona o item ao bucket
+        correspondente.
+        """
         h = self.hash_func(key, self.M)
-        bucket = self.table[h]
-        if len(bucket) > 0:
-            self.colisoes += 1
-        bucket.append((key, value))
+        self.table[h].append((key, value))
         self.insercoes += 1
-
+        
     def search(self, key):
+        """
+        Busca um valor na tabela hash pela chave.
+        Conta o número de iterações (comparações) realizadas para encontrar o item.
+        Retorna o valor e a contagem de iterações, ou None e a contagem.
+        """
         h = self.hash_func(key, self.M)
+        iteracoes = 0
         for k, v in self.table[h]:
+            iteracoes += 1
             if k == key:
-                return v
-        return None
+                return v, iteracoes
+        return None, iteracoes
 
-    def load_factor(self):
-        return self.insercoes / self.M
+def rodar_experimento_hash(N, M, hash_func, rodadas=5):
+    """
+    Executa um experimento completo para uma tabela hash, medindo diversas métricas
+    para as operações de inserção e busca. O experimento é repetido 5 vezes
+    para obter resultados estatísticos confiáveis, assim como solicitado no trabalho.
+    Retorna um dicionário com as médias e desvios padrão das métricas coletadas.
+    """
+    # Listas para armazenar as métricas de cada uma das 5 rodadas
+    colisoes_list, tempo_insercao_list, tempo_busca_list = [], [], []
+    mem_peak_list, cpu_time_list, iteracoes_busca_list = [], [], []
 
-# -------------------------------
-# Experimentos
-# -------------------------------
-def rodar_experimento(N, M, hash_func, rodadas=5):
-    colisoes, load_factors, tempos, mem_usages, cpu_times = [], [], [], [], []
+    # Define o número de chaves para buscar (1% dos dados, mínimo de 100)
+    num_buscas = max(100, int(N * 0.01))
 
     for _ in range(rodadas):
+        # Gera os dados fictícios para a rodada
         registros = gerar_registros(N)
+        # Seleciona chaves aleatórias para buscar
+        chaves_busca = random.sample([r[0] for r in registros], num_buscas)
 
-        tracemalloc.start()
-        start_cpu = time.process_time()
-        start_time = time.time()
-
+        # --- Medição de INSERÇÃO ---
+        tracemalloc.start()  # Inicia a medição de memória
+        start_cpu_insert = time.process_time()  # Tempo de CPU
+        start_time_insert = time.time()  # Tempo de parede (wall-clock)
+        
         ht = HashTable(M, hash_func)
+        colisoes_rodada = 0
         for k, v in registros:
+            h = ht.hash_func(k, ht.M)
+            if len(ht.table[h]) > 0:
+                colisoes_rodada += 1  # Conta a colisão antes de inserir
             ht.insert(k, v)
-
-        elapsed_time = time.time() - start_time
-        cpu_time = time.process_time() - start_cpu
+        
+        elapsed_time_insert = time.time() - start_time_insert
+        cpu_time_insert = time.process_time() - start_cpu_insert
         current, peak = tracemalloc.get_traced_memory()
-        tracemalloc.stop()
-
+        tracemalloc.stop() # Finaliza a medição de memória
+        
         process = psutil.Process(os.getpid())
-        mem_usage = process.memory_info().rss / (1024 * 1024)  # MB
+        mem_usage_mb = process.memory_info().rss / (1024 * 1024)
 
-        # Coleta métricas
-        colisoes.append(ht.colisoes)
-        load_factors.append(ht.load_factor())
-        tempos.append(elapsed_time)
-        mem_usages.append(mem_usage)
-        cpu_times.append(cpu_time)
+        colisoes_list.append(colisoes_rodada)
+        tempo_insercao_list.append(elapsed_time_insert)
+        mem_peak_list.append(peak / (1024 * 1024)) # Armazena o pico de memória em MB
+        cpu_time_list.append(cpu_time_insert)
 
+        # Medição de BUSCA 
+        iteracoes_busca_total = 0
+        start_time_search = time.time()
+        for k_busca in chaves_busca:
+            _, iteracoes = ht.search(k_busca)
+            iteracoes_busca_total += iteracoes
+        
+        elapsed_time_search = time.time() - start_time_search
+        
+        tempo_busca_list.append(elapsed_time_search)
+        # Calcula a média de iterações por busca e armazena
+        iteracoes_busca_list.append(iteracoes_busca_total / num_buscas)
+
+    # Calcula e retorna as médias e desvios padrão de todas as métricas
+    # A análise do desvio padrão é essencial para o relatório,
+    # mostrando a variabilidade dos resultados.
     return {
-        "colisoes_media": statistics.mean(colisoes),
-        "colisoes_dp": statistics.pstdev(colisoes),
-        "load_media": statistics.mean(load_factors),
-        "tempo_medio": statistics.mean(tempos),
-        "tempo_dp": statistics.pstdev(tempos),
-        "memoria_media_MB": statistics.mean(mem_usages),
-        "cpu_time_medio": statistics.mean(cpu_times),
+        "N": N,
+        "M": M,
+        "funcao": hash_func.__name__,
+        "colisoes_media": statistics.mean(colisoes_list),
+        "colisoes_dp": statistics.pstdev(colisoes_list),
+        "tempo_insercao_medio": statistics.mean(tempo_insercao_list),
+        "tempo_insercao_dp": statistics.pstdev(tempo_insercao_list),
+        "tempo_busca_medio": statistics.mean(tempo_busca_list),
+        "tempo_busca_dp": statistics.pstdev(tempo_busca_list),
+        "iteracoes_busca_media": statistics.mean(iteracoes_busca_list),
+        "iteracoes_busca_dp": statistics.pstdev(iteracoes_busca_list) if len(iteracoes_busca_list) > 1 else 0.0,
+        "memoria_pico_media_MB": statistics.mean(mem_peak_list),
+        "cpu_time_medio": statistics.mean(cpu_time_list),
+        "load_factor": ht.insercoes / ht.M,
     }
 
-def mostrar_big_o(N, M):
-    print("\n--- Notação Big O ---")
-    print(f"Para N = {N} elementos e M = {M} buckets:")
-    print("  - Melhor caso (sem colisão): O(1)")
-    print(f"  - Pior caso (todas colisões em um bucket): O({N})")
-    print(f"  - Caso médio (listas uniformes): O({round(N/M, 2)}) por operação")
-    print("Onde N/M é o tamanho médio de cada lista (bucket).")
-    print("Se a função hash for boa e M for grande, espera-se O(1) para operações.")
-
 def salvar_resultados_txt(resultados, filename="resultados_hash.txt"):
+    """
+    Salva os resultados dos experimentos em um arquivo de texto.
+    Inclui uma seção de análise da notação Big-O para cada cenário,
+    conforme solicitado no trabalho.
+    """
     with open(filename, "w") as f:
         for res in resultados:
             N = res["N"]
             M = res["M"]
             funcao = res["funcao"]
-            f.write(f"Experimento: N={N}, M={M}, Função={funcao}\n")
+            f.write(f"Experimento: N={N}, M={M}, Função: {funcao}\n")
             f.write(f"Resultados: {res}\n")
-            f.write("--- Notação Big O ---\n")
-            f.write(f"  Melhor caso: O(1)\n")
-            f.write(f"  Pior caso: O({N})\n")
-            f.write(f"  Caso médio: O({round(N/M, 2)})\n")
+            f.write("--- Análise Assintótica (Notação Big-O) ---\n")
+            f.write(f"  Melhor caso (inserção/busca): O(1)\n")
+            f.write(f"  Pior caso (inserção/busca): O({N})\n")
+            f.write(f"  Caso médio (inserção/busca): O(1 + N/M)\n")
+            f.write("Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).\n")
+            f.write("Se a função hash for boa, espera-se uma performance próxima de O(1).\n")
             f.write("\n")
 
-# -------------------------------
-# Main
-# -------------------------------
 if __name__ == "__main__":
+    """
+    Função principal que coordena a execução de todos os experimentos.
+    Define os volumes de dados, tamanhos de tabela e funções hash,
+    e então itera sobre cada combinação.
+    """
+    # [cite_start]Volumes de dados a serem testados 
     N_values = [10_000, 50_000, 100_000]
+    # [cite_start]Tamanhos de tabela hash para avaliação de colisões e load factor 
     M_values = [100, 1000, 5000]
+    # [cite_start]As três funções hash distintas solicitadas
     hash_functions = {
-        "Hash1 (ASCII sum)": hash_func1,
+        "Hash1 (Soma ASCII)": hash_func1,
         "Hash2 (Polinomial)": hash_func2,
-        "Hash3 (Multiplicative)": hash_func3,
+        "Hash3 (Multiplicativo)": hash_func3,
     }
 
     resultados = []
 
+    # Loop principal para rodar todos os cenários de teste
     for N in N_values:
         for M in M_values:
             for nome, func in hash_functions.items():
-                print(f"\n - Rodando experimento N={N}, M={M}, {nome}")
-                res = rodar_experimento(N, M, func, rodadas=5)
-                res.update({"N": N, "M": M, "funcao": nome})
+                print(f"\n- Rodando experimento N={N}, M={M}, Função: {nome}")
+                res = rodar_experimento_hash(N, M, func, rodadas=5)
                 resultados.append(res)
                 print(res)
-            mostrar_big_o(N, M)
 
+    # Salva todos os resultados em um arquivo para posterior análise
     salvar_resultados_txt(resultados)

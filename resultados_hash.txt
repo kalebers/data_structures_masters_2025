@@ -1,189 +1,243 @@
-Experimento: N=10000, M=100, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 9940.8, 'colisoes_dp': 2.039607805437114, 'load_media': 100.0, 'tempo_medio': 0.07411580085754395, 'tempo_dp': 0.007262287213869069, 'memoria_media_MB': 20.49296875, 'cpu_time_medio': 0.0716032, 'N': 10000, 'M': 100, 'funcao': 'Hash1 (ASCII sum)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(10000)
-  Caso médio: O(100.0)
+Experimento: N=10000, M=100, Função: hash_func1
+Resultados: {'N': 10000, 'M': 100, 'funcao': 'hash_func1', 'colisoes_media': 9940.6, 'colisoes_dp': 1.624807680927192, 'tempo_insercao_medio': 0.12834563255310058, 'tempo_insercao_dp': 0.005415788503070392, 'tempo_busca_medio': 0.002419853210449219, 'tempo_busca_dp': 0.0008818773496557608, 'iteracoes_busca_media': 172.40800000000002, 'iteracoes_busca_dp': 14.217650157462735, 'memoria_pico_media_MB': 0.5349517822265625, 'cpu_time_medio': 0.1168838, 'load_factor': 100.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(10000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=10000, M=100, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 9900, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 0.1644359588623047, 'tempo_dp': 0.012543053297673596, 'memoria_media_MB': 21.76015625, 'cpu_time_medio': 0.15467440000000002, 'N': 10000, 'M': 100, 'funcao': 'Hash2 (Polinomial)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(10000)
-  Caso médio: O(100.0)
+Experimento: N=10000, M=100, Função: hash_func2
+Resultados: {'N': 10000, 'M': 100, 'funcao': 'hash_func2', 'colisoes_media': 9900, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 0.29816856384277346, 'tempo_insercao_dp': 0.011529021926643613, 'tempo_busca_medio': 0.0017639636993408204, 'tempo_busca_dp': 0.0007566739932208914, 'iteracoes_busca_media': 51.976, 'iteracoes_busca_dp': 2.763154718795167, 'memoria_pico_media_MB': 0.5353759765625, 'cpu_time_medio': 0.2744058000000001, 'load_factor': 100.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(10000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=10000, M=100, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 9900, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 0.05730605125427246, 'tempo_dp': 0.006429721510776738, 'memoria_media_MB': 22.58671875, 'cpu_time_medio': 0.05321939999999996, 'N': 10000, 'M': 100, 'funcao': 'Hash3 (Multiplicative)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(10000)
-  Caso médio: O(100.0)
+Experimento: N=10000, M=100, Função: hash_func3
+Resultados: {'N': 10000, 'M': 100, 'funcao': 'hash_func3', 'colisoes_media': 9900, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 0.07846336364746094, 'tempo_insercao_dp': 0.004058579818957219, 'tempo_busca_medio': 0.0015111923217773437, 'tempo_busca_dp': 0.00091469783755514, 'iteracoes_busca_media': 50.554, 'iteracoes_busca_dp': 1.0363898880247717, 'memoria_pico_media_MB': 0.535321044921875, 'cpu_time_medio': 0.06927440000000003, 'load_factor': 100.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(10000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=10000, M=1000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 9939.4, 'colisoes_dp': 1.019803902718557, 'load_media': 10.0, 'tempo_medio': 0.07980480194091796, 'tempo_dp': 0.00392670322633218, 'memoria_media_MB': 22.87734375, 'cpu_time_medio': 0.07673920000000001, 'N': 10000, 'M': 1000, 'funcao': 'Hash1 (ASCII sum)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(10000)
-  Caso médio: O(10.0)
+Experimento: N=10000, M=1000, Função: hash_func1
+Resultados: {'N': 10000, 'M': 1000, 'funcao': 'hash_func1', 'colisoes_media': 9940, 'colisoes_dp': 1.5491933384829668, 'tempo_insercao_medio': 0.14466819763183594, 'tempo_insercao_dp': 0.012580784731727662, 'tempo_busca_medio': 0.004278421401977539, 'tempo_busca_dp': 0.0020016805208156263, 'iteracoes_busca_media': 166.81, 'iteracoes_busca_dp': 14.323047161829773, 'memoria_pico_media_MB': 0.590533447265625, 'cpu_time_medio': 0.13128420000000016, 'load_factor': 10.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(10000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=10000, M=1000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 9000, 'colisoes_dp': 0.0, 'load_media': 10.0, 'tempo_medio': 0.23553214073181153, 'tempo_dp': 0.06795251159560373, 'memoria_media_MB': 22.9140625, 'cpu_time_medio': 0.2013772000000002, 'N': 10000, 'M': 1000, 'funcao': 'Hash2 (Polinomial)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(10000)
-  Caso médio: O(10.0)
+Experimento: N=10000, M=1000, Função: hash_func2
+Resultados: {'N': 10000, 'M': 1000, 'funcao': 'hash_func2', 'colisoes_media': 9000, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 0.42780604362487795, 'tempo_insercao_dp': 0.016178778033295725, 'tempo_busca_medio': 0.0003190040588378906, 'tempo_busca_dp': 5.3341861370752764e-05, 'iteracoes_busca_media': 5.754, 'iteracoes_busca_dp': 0.22392856003645448, 'memoria_pico_media_MB': 0.6109664916992188, 'cpu_time_medio': 0.3829372000000001, 'load_factor': 10.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(10000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=10000, M=1000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 9000, 'colisoes_dp': 0.0, 'load_media': 10.0, 'tempo_medio': 0.08011527061462402, 'tempo_dp': 0.023299963721802885, 'memoria_media_MB': 22.9421875, 'cpu_time_medio': 0.059473999999999985, 'N': 10000, 'M': 1000, 'funcao': 'Hash3 (Multiplicative)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(10000)
-  Caso médio: O(10.0)
+Experimento: N=10000, M=1000, Função: hash_func3
+Resultados: {'N': 10000, 'M': 1000, 'funcao': 'hash_func3', 'colisoes_media': 9000, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 0.09430022239685058, 'tempo_insercao_dp': 0.010650983527570067, 'tempo_busca_medio': 0.000238037109375, 'tempo_busca_dp': 5.07990718136503e-05, 'iteracoes_busca_media': 5.924, 'iteracoes_busca_dp': 0.34753992576393294, 'memoria_pico_media_MB': 0.6110260009765625, 'cpu_time_medio': 0.08500940000000004, 'load_factor': 10.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(10000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=10000, M=5000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 9940.2, 'colisoes_dp': 0.7483314773547883, 'load_media': 2.0, 'tempo_medio': 0.1010282039642334, 'tempo_dp': 0.027044618411563116, 'memoria_media_MB': 23.06171875, 'cpu_time_medio': 0.09011580000000023, 'N': 10000, 'M': 5000, 'funcao': 'Hash1 (ASCII sum)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(10000)
-  Caso médio: O(2.0)
+Experimento: N=10000, M=5000, Função: hash_func1
+Resultados: {'N': 10000, 'M': 5000, 'funcao': 'hash_func1', 'colisoes_media': 9941.2, 'colisoes_dp': 1.469693845669907, 'tempo_insercao_medio': 0.15765380859375, 'tempo_insercao_dp': 0.019457394898759344, 'tempo_busca_medio': 0.002416849136352539, 'tempo_busca_dp': 0.0008677509672351399, 'iteracoes_busca_media': 154.42, 'iteracoes_busca_dp': 15.625476632730281, 'memoria_pico_media_MB': 0.835736083984375, 'cpu_time_medio': 0.13904600000000028, 'load_factor': 2.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(10000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=10000, M=5000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 5689.8, 'colisoes_dp': 19.446336415890784, 'load_media': 2.0, 'tempo_medio': 0.23903317451477052, 'tempo_dp': 0.03981738755415543, 'memoria_media_MB': 23.75234375, 'cpu_time_medio': 0.21193159999999994, 'N': 10000, 'M': 5000, 'funcao': 'Hash2 (Polinomial)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(10000)
-  Caso médio: O(2.0)
+Experimento: N=10000, M=5000, Função: hash_func2
+Resultados: {'N': 10000, 'M': 5000, 'funcao': 'hash_func2', 'colisoes_media': 5680.6, 'colisoes_dp': 3.878143885933063, 'tempo_insercao_medio': 0.42338109016418457, 'tempo_insercao_dp': 0.02892305182847264, 'tempo_busca_medio': 0.0002422332763671875, 'tempo_busca_dp': 3.724980341414332e-05, 'iteracoes_busca_media': 2.042, 'iteracoes_busca_dp': 0.06046486583132391, 'memoria_pico_media_MB': 0.894256591796875, 'cpu_time_medio': 0.392812, 'load_factor': 2.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(10000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=10000, M=5000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 5667, 'colisoes_dp': 18.253766734567417, 'load_media': 2.0, 'tempo_medio': 0.07084360122680664, 'tempo_dp': 0.02012573589647897, 'memoria_media_MB': 23.8546875, 'cpu_time_medio': 0.06332999999999984, 'N': 10000, 'M': 5000, 'funcao': 'Hash3 (Multiplicative)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(10000)
-  Caso médio: O(2.0)
+Experimento: N=10000, M=5000, Função: hash_func3
+Resultados: {'N': 10000, 'M': 5000, 'funcao': 'hash_func3', 'colisoes_media': 5662.6, 'colisoes_dp': 16.95405556201819, 'tempo_insercao_medio': 0.09605951309204101, 'tempo_insercao_dp': 0.007580214375839536, 'tempo_busca_medio': 0.00016980171203613282, 'tempo_busca_dp': 4.1090638034148004e-05, 'iteracoes_busca_media': 1.986, 'iteracoes_busca_dp': 0.08187795796183496, 'memoria_pico_media_MB': 0.8935195922851562, 'cpu_time_medio': 0.08833800000000061, 'load_factor': 2.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(10000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=50000, M=100, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 49934.4, 'colisoes_dp': 1.3564659966250536, 'load_media': 500.0, 'tempo_medio': 0.3992018222808838, 'tempo_dp': 0.03955586029465269, 'memoria_media_MB': 50.4234375, 'cpu_time_medio': 0.3799253999999994, 'N': 50000, 'M': 100, 'funcao': 'Hash1 (ASCII sum)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(50000)
-  Caso médio: O(500.0)
+Experimento: N=50000, M=100, Função: hash_func1
+Resultados: {'N': 50000, 'M': 100, 'funcao': 'hash_func1', 'colisoes_media': 49936, 'colisoes_dp': 0.8944271909999159, 'tempo_insercao_medio': 0.6594380378723145, 'tempo_insercao_dp': 0.020752673143520597, 'tempo_busca_medio': 0.08386378288269043, 'tempo_busca_dp': 0.008401515808413825, 'iteracoes_busca_media': 799.3068, 'iteracoes_busca_dp': 29.697087738699224, 'memoria_pico_media_MB': 2.996453857421875, 'cpu_time_medio': 0.6136345999999999, 'load_factor': 500.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(50000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=50000, M=100, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 49900, 'colisoes_dp': 0.0, 'load_media': 500.0, 'tempo_medio': 0.9615351676940918, 'tempo_dp': 0.2128835051865698, 'memoria_media_MB': 48.56015625, 'cpu_time_medio': 0.8121522000000002, 'N': 50000, 'M': 100, 'funcao': 'Hash2 (Polinomial)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(50000)
-  Caso médio: O(500.0)
+Experimento: N=50000, M=100, Função: hash_func2
+Resultados: {'N': 50000, 'M': 100, 'funcao': 'hash_func2', 'colisoes_media': 49900, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 1.5430830001831055, 'tempo_insercao_dp': 0.018696942284600112, 'tempo_busca_medio': 0.025397634506225585, 'tempo_busca_dp': 0.002901096835343188, 'iteracoes_busca_media': 248.3584, 'iteracoes_busca_dp': 7.3486683854967865, 'memoria_pico_media_MB': 2.9972381591796875, 'cpu_time_medio': 1.4302623999999995, 'load_factor': 500.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(50000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=50000, M=100, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 49900, 'colisoes_dp': 0.0, 'load_media': 500.0, 'tempo_medio': 0.27208847999572755, 'tempo_dp': 0.01611664274977999, 'memoria_media_MB': 50.0984375, 'cpu_time_medio': 0.2671568000000001, 'N': 50000, 'M': 100, 'funcao': 'Hash3 (Multiplicative)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(50000)
-  Caso médio: O(500.0)
+Experimento: N=50000, M=100, Função: hash_func3
+Resultados: {'N': 50000, 'M': 100, 'funcao': 'hash_func3', 'colisoes_media': 49900, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 0.43157782554626467, 'tempo_insercao_dp': 0.026856324206789964, 'tempo_busca_medio': 0.026020336151123046, 'tempo_busca_dp': 0.0030148740177816835, 'iteracoes_busca_media': 246.4436, 'iteracoes_busca_dp': 8.402319527368611, 'memoria_pico_media_MB': 2.996697998046875, 'cpu_time_medio': 0.3985906, 'load_factor': 500.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(50000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=50000, M=1000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 49934.4, 'colisoes_dp': 1.8547236990991407, 'load_media': 50.0, 'tempo_medio': 0.40965566635131834, 'tempo_dp': 0.021892606603685357, 'memoria_media_MB': 54.134375, 'cpu_time_medio': 0.39721819999999963, 'N': 50000, 'M': 1000, 'funcao': 'Hash1 (ASCII sum)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(50000)
-  Caso médio: O(50.0)
+Experimento: N=50000, M=1000, Função: hash_func1
+Resultados: {'N': 50000, 'M': 1000, 'funcao': 'hash_func1', 'colisoes_media': 49935, 'colisoes_dp': 0.6324555320336759, 'tempo_insercao_medio': 0.745229959487915, 'tempo_insercao_dp': 0.011625954016007396, 'tempo_busca_medio': 0.08546113967895508, 'tempo_busca_dp': 0.006820695545561921, 'iteracoes_busca_media': 808.402, 'iteracoes_busca_dp': 30.405905531656206, 'memoria_pico_media_MB': 3.052508544921875, 'cpu_time_medio': 0.6912182000000001, 'load_factor': 50.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(50000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=50000, M=1000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 49000, 'colisoes_dp': 0.0, 'load_media': 50.0, 'tempo_medio': 1.0551275253295898, 'tempo_dp': 0.12294416104752247, 'memoria_media_MB': 56.37578125, 'cpu_time_medio': 0.9833982000000006, 'N': 50000, 'M': 1000, 'funcao': 'Hash2 (Polinomial)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(50000)
-  Caso médio: O(50.0)
+Experimento: N=50000, M=1000, Função: hash_func2
+Resultados: {'N': 50000, 'M': 1000, 'funcao': 'hash_func2', 'colisoes_media': 49000, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 2.0659682750701904, 'tempo_insercao_dp': 0.025465029284310586, 'tempo_busca_medio': 0.004788541793823242, 'tempo_busca_dp': 0.0014286314419909324, 'iteracoes_busca_media': 26.3572, 'iteracoes_busca_dp': 0.363733088953974, 'memoria_pico_media_MB': 3.0696090698242187, 'cpu_time_medio': 1.8969567999999994, 'load_factor': 50.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(50000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=50000, M=1000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 49000, 'colisoes_dp': 0.0, 'load_media': 50.0, 'tempo_medio': 0.3631737232208252, 'tempo_dp': 0.06105716684198993, 'memoria_media_MB': 57.434375, 'cpu_time_medio': 0.33456640000000065, 'N': 50000, 'M': 1000, 'funcao': 'Hash3 (Multiplicative)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(50000)
-  Caso médio: O(50.0)
+Experimento: N=50000, M=1000, Função: hash_func3
+Resultados: {'N': 50000, 'M': 1000, 'funcao': 'hash_func3', 'colisoes_media': 49000, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 0.57900972366333, 'tempo_insercao_dp': 0.16986353508551907, 'tempo_busca_medio': 0.004654836654663086, 'tempo_busca_dp': 0.0011176898148691449, 'iteracoes_busca_media': 25.8664, 'iteracoes_busca_dp': 0.3104175252784542, 'memoria_pico_media_MB': 3.07017822265625, 'cpu_time_medio': 0.46777620000000014, 'load_factor': 50.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(50000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=50000, M=5000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 49933.8, 'colisoes_dp': 0.9797958971132712, 'load_media': 10.0, 'tempo_medio': 0.40747928619384766, 'tempo_dp': 0.026652704791989192, 'memoria_media_MB': 55.828125, 'cpu_time_medio': 0.39690200000000003, 'N': 50000, 'M': 5000, 'funcao': 'Hash1 (ASCII sum)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(50000)
-  Caso médio: O(10.0)
+Experimento: N=50000, M=5000, Função: hash_func1
+Resultados: {'N': 50000, 'M': 5000, 'funcao': 'hash_func1', 'colisoes_media': 49935, 'colisoes_dp': 0.8944271909999159, 'tempo_insercao_medio': 0.9734081268310547, 'tempo_insercao_dp': 0.308448085078796, 'tempo_busca_medio': 0.23325538635253906, 'tempo_busca_dp': 0.25923801552124554, 'iteracoes_busca_media': 813.2808, 'iteracoes_busca_dp': 19.953680987727555, 'memoria_pico_media_MB': 3.29971923828125, 'cpu_time_medio': 0.7258036000000019, 'load_factor': 10.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(50000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=50000, M=5000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 45000.8, 'colisoes_dp': 0.4, 'load_media': 10.0, 'tempo_medio': 1.0465015411376952, 'tempo_dp': 0.022884748754756275, 'memoria_media_MB': 59.5578125, 'cpu_time_medio': 1.0269354000000006, 'N': 50000, 'M': 5000, 'funcao': 'Hash2 (Polinomial)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(50000)
-  Caso médio: O(10.0)
+Experimento: N=50000, M=5000, Função: hash_func2
+Resultados: {'N': 50000, 'M': 5000, 'funcao': 'hash_func2', 'colisoes_media': 45000, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 2.197416639328003, 'tempo_insercao_dp': 0.10656995679972066, 'tempo_busca_medio': 0.0020370006561279295, 'tempo_busca_dp': 0.0005736464652301749, 'iteracoes_busca_media': 5.852, 'iteracoes_busca_dp': 0.14564065366510814, 'memoria_pico_media_MB': 3.404338073730469, 'cpu_time_medio': 2.011359999999999, 'load_factor': 10.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(50000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=50000, M=5000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 45000, 'colisoes_dp': 0.0, 'load_media': 10.0, 'tempo_medio': 0.3876500606536865, 'tempo_dp': 0.10038228855965285, 'memoria_media_MB': 58.3796875, 'cpu_time_medio': 0.3637962000000002, 'N': 50000, 'M': 5000, 'funcao': 'Hash3 (Multiplicative)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(50000)
-  Caso médio: O(10.0)
+Experimento: N=50000, M=5000, Função: hash_func3
+Resultados: {'N': 50000, 'M': 5000, 'funcao': 'hash_func3', 'colisoes_media': 45000.4, 'colisoes_dp': 0.4898979485566356, 'tempo_insercao_medio': 0.5146276950836182, 'tempo_insercao_dp': 0.017186634773994076, 'tempo_busca_medio': 0.0015170574188232422, 'tempo_busca_dp': 0.0008066961027582287, 'iteracoes_busca_media': 6.002, 'iteracoes_busca_dp': 0.0664409512273867, 'memoria_pico_media_MB': 3.4044845581054686, 'cpu_time_medio': 0.47553380000000234, 'load_factor': 10.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(50000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=100000, M=100, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 99932.8, 'colisoes_dp': 1.1661903789690602, 'load_media': 1000.0, 'tempo_medio': 0.7756392478942871, 'tempo_dp': 0.04147486020572121, 'memoria_media_MB': 94.9359375, 'cpu_time_medio': 0.7563069999999982, 'N': 100000, 'M': 100, 'funcao': 'Hash1 (ASCII sum)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(100000)
-  Caso médio: O(1000.0)
+Experimento: N=100000, M=100, Função: hash_func1
+Resultados: {'N': 100000, 'M': 100, 'funcao': 'hash_func1', 'colisoes_media': 99933.4, 'colisoes_dp': 1.019803902718557, 'tempo_insercao_medio': 1.3954524040222167, 'tempo_insercao_dp': 0.011593493950843286, 'tempo_busca_medio': 0.39294729232788084, 'tempo_busca_dp': 0.004047751058694472, 'iteracoes_busca_media': 1610.668, 'iteracoes_busca_dp': 23.463355778745697, 'memoria_pico_media_MB': 6.068927001953125, 'cpu_time_medio': 1.2719497999999987, 'load_factor': 1000.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(100000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=100000, M=100, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 99900, 'colisoes_dp': 0.0, 'load_media': 1000.0, 'tempo_medio': 1.6001800537109374, 'tempo_dp': 0.0907059111089664, 'memoria_media_MB': 83.02109375, 'cpu_time_medio': 1.5387798000000004, 'N': 100000, 'M': 100, 'funcao': 'Hash2 (Polinomial)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(100000)
-  Caso médio: O(1000.0)
+Experimento: N=100000, M=100, Função: hash_func2
+Resultados: {'N': 100000, 'M': 100, 'funcao': 'hash_func2', 'colisoes_media': 99900, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 3.704031991958618, 'tempo_insercao_dp': 0.7037586135770953, 'tempo_busca_medio': 0.14768247604370116, 'tempo_busca_dp': 0.04844416220616274, 'iteracoes_busca_media': 497.8808, 'iteracoes_busca_dp': 5.224310917240674, 'memoria_pico_media_MB': 6.081735229492187, 'cpu_time_medio': 2.8216733999999972, 'load_factor': 1000.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(100000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=100000, M=100, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 99900, 'colisoes_dp': 0.0, 'load_media': 1000.0, 'tempo_medio': 0.803251838684082, 'tempo_dp': 0.22946590045247606, 'memoria_media_MB': 85.07265625, 'cpu_time_medio': 0.6394209999999987, 'N': 100000, 'M': 100, 'funcao': 'Hash3 (Multiplicative)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(100000)
-  Caso médio: O(1000.0)
+Experimento: N=100000, M=100, Função: hash_func3
+Resultados: {'N': 100000, 'M': 100, 'funcao': 'hash_func3', 'colisoes_media': 99900, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 2.3372215270996093, 'tempo_insercao_dp': 0.8189783338071758, 'tempo_busca_medio': 0.44132018089294434, 'tempo_busca_dp': 0.179874588219421, 'iteracoes_busca_media': 504.7878, 'iteracoes_busca_dp': 8.779363881284354, 'memoria_pico_media_MB': 6.082609558105469, 'cpu_time_medio': 1.0839589999999988, 'load_factor': 1000.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(100000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=100000, M=1000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 99933.2, 'colisoes_dp': 1.1661903789690602, 'load_media': 100.0, 'tempo_medio': 0.885974931716919, 'tempo_dp': 0.03353475767810643, 'memoria_media_MB': 98.16875, 'cpu_time_medio': 0.8492729999999995, 'N': 100000, 'M': 1000, 'funcao': 'Hash1 (ASCII sum)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(100000)
-  Caso médio: O(100.0)
+Experimento: N=100000, M=1000, Função: hash_func1
+Resultados: {'N': 100000, 'M': 1000, 'funcao': 'hash_func1', 'colisoes_media': 99933.4, 'colisoes_dp': 1.8547236990991407, 'tempo_insercao_medio': 2.3445847034454346, 'tempo_insercao_dp': 0.17381650634041523, 'tempo_busca_medio': 0.627366018295288, 'tempo_busca_dp': 0.09236696748153315, 'iteracoes_busca_media': 1627.0618, 'iteracoes_busca_dp': 28.281608966959453, 'memoria_pico_media_MB': 6.1261474609375, 'cpu_time_medio': 1.5254239999999981, 'load_factor': 100.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(100000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=100000, M=1000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 99000, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 2.146893548965454, 'tempo_dp': 0.16835522981255363, 'memoria_media_MB': 89.45703125, 'cpu_time_medio': 1.984943599999997, 'N': 100000, 'M': 1000, 'funcao': 'Hash2 (Polinomial)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(100000)
-  Caso médio: O(100.0)
+Experimento: N=100000, M=1000, Função: hash_func2
+Resultados: {'N': 100000, 'M': 1000, 'funcao': 'hash_func2', 'colisoes_media': 99000, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 7.265928125381469, 'tempo_insercao_dp': 0.8957761705969387, 'tempo_busca_medio': 0.023438787460327147, 'tempo_busca_dp': 0.008618618969911928, 'iteracoes_busca_media': 51.1084, 'iteracoes_busca_dp': 1.2385410126435046, 'memoria_pico_media_MB': 6.142117309570312, 'cpu_time_medio': 4.291326799999996, 'load_factor': 100.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(100000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=100000, M=1000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 99000, 'colisoes_dp': 0.0, 'load_media': 100.0, 'tempo_medio': 0.6486051559448243, 'tempo_dp': 0.012447381240049587, 'memoria_media_MB': 96.9953125, 'cpu_time_medio': 0.6270814000000001, 'N': 100000, 'M': 1000, 'funcao': 'Hash3 (Multiplicative)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(100000)
-  Caso médio: O(100.0)
+Experimento: N=100000, M=1000, Função: hash_func3
+Resultados: {'N': 100000, 'M': 1000, 'funcao': 'hash_func3', 'colisoes_media': 99000, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 1.6494085311889648, 'tempo_insercao_dp': 0.52843466128259, 'tempo_busca_medio': 0.020987176895141603, 'tempo_busca_dp': 0.001772600095849409, 'iteracoes_busca_media': 50.737, 'iteracoes_busca_dp': 0.5215986963173889, 'memoria_pico_media_MB': 6.141899108886719, 'cpu_time_medio': 1.0374789999999963, 'load_factor': 100.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(100000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=100000, M=5000, Função=Hash1 (ASCII sum)
-Resultados: {'colisoes_media': 99932.8, 'colisoes_dp': 1.6, 'load_media': 20.0, 'tempo_medio': 0.8493381023406983, 'tempo_dp': 0.0516511107655162, 'memoria_media_MB': 91.55625, 'cpu_time_medio': 0.8321373999999991, 'N': 100000, 'M': 5000, 'funcao': 'Hash1 (ASCII sum)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(100000)
-  Caso médio: O(20.0)
+Experimento: N=100000, M=5000, Função: hash_func1
+Resultados: {'N': 100000, 'M': 5000, 'funcao': 'hash_func1', 'colisoes_media': 99933.8, 'colisoes_dp': 1.1661903789690602, 'tempo_insercao_medio': 2.3360428333282472, 'tempo_insercao_dp': 0.24135586840943846, 'tempo_busca_medio': 0.5374997615814209, 'tempo_busca_dp': 0.045176626247289894, 'iteracoes_busca_media': 1594.1448, 'iteracoes_busca_dp': 20.353245022845822, 'memoria_pico_media_MB': 6.369427490234375, 'cpu_time_medio': 1.5422600000000046, 'load_factor': 20.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(100000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=100000, M=5000, Função=Hash2 (Polinomial)
-Resultados: {'colisoes_media': 95000, 'colisoes_dp': 0.0, 'load_media': 20.0, 'tempo_medio': 2.2609346389770506, 'tempo_dp': 0.3042798528845171, 'memoria_media_MB': 99.896875, 'cpu_time_medio': 2.1039838000000004, 'N': 100000, 'M': 5000, 'funcao': 'Hash2 (Polinomial)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(100000)
-  Caso médio: O(20.0)
+Experimento: N=100000, M=5000, Função: hash_func2
+Resultados: {'N': 100000, 'M': 5000, 'funcao': 'hash_func2', 'colisoes_media': 95000, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 6.993552541732788, 'tempo_insercao_dp': 1.6046963498241749, 'tempo_busca_medio': 0.005956220626831055, 'tempo_busca_dp': 0.00014578506755592188, 'iteracoes_busca_media': 11.0502, 'iteracoes_busca_dp': 0.1870458767254708, 'memoria_pico_media_MB': 6.460111999511719, 'cpu_time_medio': 4.357197800000011, 'load_factor': 20.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(100000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
-Experimento: N=100000, M=5000, Função=Hash3 (Multiplicative)
-Resultados: {'colisoes_media': 95000, 'colisoes_dp': 0.0, 'load_media': 20.0, 'tempo_medio': 0.6857183456420899, 'tempo_dp': 0.024615964624630483, 'memoria_media_MB': 96.14765625, 'cpu_time_medio': 0.6723131999999964, 'N': 100000, 'M': 5000, 'funcao': 'Hash3 (Multiplicative)'}
---- Notação Big O ---
-  Melhor caso: O(1)
-  Pior caso: O(100000)
-  Caso médio: O(20.0)
+Experimento: N=100000, M=5000, Função: hash_func3
+Resultados: {'N': 100000, 'M': 5000, 'funcao': 'hash_func3', 'colisoes_media': 95000, 'colisoes_dp': 0.0, 'tempo_insercao_medio': 1.5837087154388427, 'tempo_insercao_dp': 0.21622715140416024, 'tempo_busca_medio': 0.00641937255859375, 'tempo_busca_dp': 0.0013547288439779914, 'iteracoes_busca_media': 11.1112, 'iteracoes_busca_dp': 0.22628247833184106, 'memoria_pico_media_MB': 6.458659362792969, 'cpu_time_medio': 1.087526799999995, 'load_factor': 20.0}
+--- Análise Assintótica (Notação Big-O) ---
+  Melhor caso (inserção/busca): O(1)
+  Pior caso (inserção/busca): O(100000)
+  Caso médio (inserção/busca): O(1 + N/M)
+Onde N/M é o fator de carga e representa o tamanho médio de cada lista (bucket).
+Se a função hash for boa, espera-se uma performance próxima de O(1).
 
