@@ -11,6 +11,7 @@ import tracemalloc
 import psutil
 import os
 import statistics
+import matplotlib.pyplot as plt
 
 def gerar_registros(n):
     """
@@ -19,7 +20,7 @@ def gerar_registros(n):
     única de 9 dígitos e o valor é um dicionário com nome, salário e setor.
     """
     registros = []
-    # Estamos usando um set para garantir que as matrículas (chaves) sejam únicas,
+    # Usamos um set para garantir que as matrículas (chaves) sejam únicas,
     # evitando problemas de duplicação durante os testes.
     matriculas_geradas = set()
     for _ in range(n):
@@ -33,11 +34,10 @@ def gerar_registros(n):
         registros.append((matricula, {"nome": nome, "salario": salario, "setor": setor}))
     return registros
 
-
 def hash_func1(key, M):
     """
     Função Hash 1: Soma dos valores ASCII dos caracteres.
-    Uma função simples e serve como linha de base. Pode gerar muitas colisões,
+    É uma função simples e serve como linha de base. Pode gerar muitas colisões,
     especialmente com chaves que têm os mesmos caracteres rearranjados.
     """
     return sum(ord(c) for c in key) % M
@@ -45,7 +45,7 @@ def hash_func1(key, M):
 def hash_func2(key, M):
     """
     Função Hash 2: Hash polinomial base 31.
-    Usamos um número primo (31) para ajudar a dispersar melhor os valores,
+    Usamos um número primo (31) ajuda a dispersar melhor os valores,
     reduzindo o número de colisões em comparação com a soma simples.
     """
     h = 0
@@ -59,7 +59,6 @@ def hash_func3(key, M):
     Esta função é ideal para chaves que são números. Multiplica a chave por
     um número irracional para espalhar os valores uniformemente no espaço de hashing,
     o que é muito eficaz para evitar padrões de dados que causem colisões.
-    Obs: A chave deve ser convertida para inteiro, ou seja, se for string, deve ser numérica.
     """
     A = 0.6180339887  # Constante irracional (proporção áurea)
     k = int(key)
@@ -109,8 +108,7 @@ def rodar_experimento_hash(N, M, hash_func, rodadas=5):
     """
     Executa um experimento completo para uma tabela hash, medindo diversas métricas
     para as operações de inserção e busca. O experimento é repetido 5 vezes
-    para obter resultados estatísticos confiáveis, assim como solicitado no trabalho.
-    Retorna um dicionário com as médias e desvios padrão das métricas coletadas.
+    para obter resultados estatísticos confiáveis.
     """
     # Listas para armazenar as métricas de cada uma das 5 rodadas
     colisoes_list, tempo_insercao_list, tempo_busca_list = [], [], []
@@ -151,7 +149,7 @@ def rodar_experimento_hash(N, M, hash_func, rodadas=5):
         mem_peak_list.append(peak / (1024 * 1024)) # Armazena o pico de memória em MB
         cpu_time_list.append(cpu_time_insert)
 
-        # Medição de BUSCA 
+        # --- Medição de BUSCA ---
         iteracoes_busca_total = 0
         start_time_search = time.time()
         for k_busca in chaves_busca:
@@ -183,6 +181,65 @@ def rodar_experimento_hash(N, M, hash_func, rodadas=5):
         "cpu_time_medio": statistics.mean(cpu_time_list),
         "load_factor": ht.insercoes / ht.M,
     }
+    
+def plot_resultados(resultados):
+    """
+    Gera e salva gráficos de comparação para as métricas de desempenho.
+    """
+    os.makedirs("plots", exist_ok=True) # Cria a pasta 'plots' se não existir
+
+    for N in sorted(list(set(res['N'] for res in resultados))):
+        # Filtra resultados para o N atual
+        resultados_n = [res for res in resultados if res['N'] == N]
+        
+        # Agrupa os resultados por função hash e M
+        hash_funcs = sorted(list(set(res['funcao'] for res in resultados_n)))
+        M_values = sorted(list(set(res['M'] for res in resultados_n)))
+
+        # Plot 1: Tempo de Inserção por Função Hash e M
+        plt.figure(figsize=(12, 6))
+        for M in M_values:
+            tempos = [res['tempo_insercao_medio'] for res in resultados_n if res['M'] == M]
+            tempos_dp = [res['tempo_insercao_dp'] for res in resultados_n if res['M'] == M]
+            plt.errorbar(hash_funcs, tempos, yerr=tempos_dp, marker='o', label=f'M={M}')
+        
+        plt.title(f'Tempo Médio de Inserção (N={N})')
+        plt.xlabel('Função Hash')
+        plt.ylabel('Tempo (segundos)')
+        plt.legend(title='Tamanho da Tabela (M)')
+        plt.grid(True)
+        plt.savefig(f'plots/tempo_insercao_N{N}.png')
+        plt.close()
+
+        # Plot 2: Iterações Médias de Busca por Função Hash e M
+        plt.figure(figsize=(12, 6))
+        for M in M_values:
+            iteracoes = [res['iteracoes_busca_media'] for res in resultados_n if res['M'] == M]
+            iteracoes_dp = [res['iteracoes_busca_dp'] for res in resultados_n if res['M'] == M]
+            plt.errorbar(hash_funcs, iteracoes, yerr=iteracoes_dp, marker='o', label=f'M={M}')
+        
+        plt.title(f'Média de Iterações por Busca (N={N})')
+        plt.xlabel('Função Hash')
+        plt.ylabel('Iterações Médias')
+        plt.legend(title='Tamanho da Tabela (M)')
+        plt.grid(True)
+        plt.savefig(f'plots/iteracoes_busca_N{N}.png')
+        plt.close()
+
+        # Plot 3: Colisões Totais por Função Hash e M
+        plt.figure(figsize=(12, 6))
+        for M in M_values:
+            colisoes = [res['colisoes_media'] for res in resultados_n if res['M'] == M]
+            colisoes_dp = [res['colisoes_dp'] for res in resultados_n if res['M'] == M]
+            plt.errorbar(hash_funcs, colisoes, yerr=colisoes_dp, marker='o', label=f'M={M}')
+        
+        plt.title(f'Colisões Médias na Inserção (N={N})')
+        plt.xlabel('Função Hash')
+        plt.ylabel('Colisões Médias')
+        plt.legend(title='Tamanho da Tabela (M)')
+        plt.grid(True)
+        plt.savefig(f'plots/colisoes_N{N}.png')
+        plt.close()
 
 def salvar_resultados_txt(resultados, filename="resultados_hash.txt"):
     """
@@ -211,11 +268,11 @@ if __name__ == "__main__":
     Define os volumes de dados, tamanhos de tabela e funções hash,
     e então itera sobre cada combinação.
     """
-    # [cite_start]Volumes de dados a serem testados 
+    # Volumes de dados a serem testados [cite: 20]
     N_values = [10_000, 50_000, 100_000]
-    # [cite_start]Tamanhos de tabela hash para avaliação de colisões e load factor 
+    # Tamanhos de tabela hash para avaliação de colisões e load factor [cite: 26, 27]
     M_values = [100, 1000, 5000]
-    # [cite_start]As três funções hash distintas solicitadas
+    # As três funções hash distintas solicitadas [cite: 25]
     hash_functions = {
         "Hash1 (Soma ASCII)": hash_func1,
         "Hash2 (Polinomial)": hash_func2,
@@ -233,5 +290,8 @@ if __name__ == "__main__":
                 resultados.append(res)
                 print(res)
 
-    # Salva todos os resultados em um arquivo para posterior análise
+    # Salva todos os resultados em um arquivo de texto
     salvar_resultados_txt(resultados)
+
+    # Gera e salva os gráficos para a análise visual 
+    plot_resultados(resultados)
