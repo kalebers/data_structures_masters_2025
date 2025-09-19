@@ -1,0 +1,103 @@
+Análise Comparativa de Algoritmos de Busca em Grafos
+============================================================
+
+--- Comparando de São Paulo para Florianópolis ---
+Algoritmo Dijkstra:
+  Caminho Encontrado: ['São Paulo', 'Goiânia', 'Campinas', 'Florianópolis']
+  Custo Médio: 1156.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 10.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000056s | Desvio Padrão: 0.000026s
+--------------------
+Algoritmo DFS:
+  Caminho Encontrado: ['São Paulo', 'Goiânia', 'Brasília', 'Campinas', 'Florianópolis']
+  Custo Médio: 2203.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 5.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000025s | Desvio Padrão: 0.000010s
+--------------------
+Algoritmo BFS:
+  Caminho Encontrado: ['São Paulo', 'Goiânia', 'Campinas', 'Florianópolis']
+  Custo Médio: 1156.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 12.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000046s | Desvio Padrão: 0.000024s
+--------------------
+
+--- Comparando de Rio de Janeiro para Goiânia ---
+Algoritmo Dijkstra:
+  Caminho Encontrado: ['Rio de Janeiro', 'Belo Horizonte', 'Curitiba', 'Salvador', 'Goiânia']
+  Custo Médio: 1361.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 9.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000078s | Desvio Padrão: 0.000093s
+--------------------
+Algoritmo DFS:
+  Caminho Encontrado: ['Rio de Janeiro', 'Belo Horizonte', 'Curitiba', 'Porto Alegre', 'Florianópolis', 'Campinas', 'Brasília', 'Goiânia']
+  Custo Médio: 3108.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 8.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000019s | Desvio Padrão: 0.000008s
+--------------------
+Algoritmo BFS:
+  Caminho Encontrado: ['Rio de Janeiro', 'São Paulo', 'Goiânia']
+  Custo Médio: 1428.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 5.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000008s | Desvio Padrão: 0.000003s
+--------------------
+
+--- Comparando de Belo Horizonte para Vitória ---
+Algoritmo Dijkstra:
+  Caminho Encontrado: ['Belo Horizonte', 'Curitiba', 'Vitória']
+  Custo Médio: 742.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 4.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000014s | Desvio Padrão: 0.000004s
+--------------------
+Algoritmo DFS:
+  Caminho Encontrado: ['Belo Horizonte', 'Curitiba', 'Porto Alegre', 'Florianópolis', 'Campinas', 'Brasília', 'Goiânia', 'Salvador', 'Vitória']
+  Custo Médio: 3890.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 9.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000078s | Desvio Padrão: 0.000084s
+--------------------
+Algoritmo BFS:
+  Caminho Encontrado: ['Belo Horizonte', 'Curitiba', 'Vitória']
+  Custo Médio: 742.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 6.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000027s | Desvio Padrão: 0.000027s
+--------------------
+
+--- Comparando de Curitiba para Salvador ---
+Algoritmo Dijkstra:
+  Caminho Encontrado: ['Curitiba', 'Salvador']
+  Custo Médio: 818.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 6.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000029s | Desvio Padrão: 0.000028s
+--------------------
+Algoritmo DFS:
+  Caminho Encontrado: ['Curitiba', 'Belo Horizonte', 'Rio de Janeiro', 'São Paulo', 'Goiânia', 'Brasília', 'Vitória', 'Salvador']
+  Custo Médio: 3602.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 16.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000023s | Desvio Padrão: 0.000007s
+--------------------
+Algoritmo BFS:
+  Caminho Encontrado: ['Curitiba', 'Salvador']
+  Custo Médio: 818.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 4.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000022s | Desvio Padrão: 0.000013s
+--------------------
+
+--- Comparando de Campinas para Brasília ---
+Algoritmo Dijkstra:
+  Caminho Encontrado: ['Campinas', 'Brasília']
+  Custo Médio: 325.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 3.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000015s | Desvio Padrão: 0.000005s
+--------------------
+Algoritmo DFS:
+  Caminho Encontrado: ['Campinas', 'Brasília']
+  Custo Médio: 325.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 2.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000004s | Desvio Padrão: 0.000002s
+--------------------
+Algoritmo BFS:
+  Caminho Encontrado: ['Campinas', 'Brasília']
+  Custo Médio: 325.00 | Desvio Padrão: 0.00
+  Nós Expandidos Médio: 2.00 | Desvio Padrão: 0.00
+  Tempo Médio: 0.000004s | Desvio Padrão: 0.000001s
+--------------------
+
