@@ -1,13 +1,27 @@
 Comparação de Desempenho e Qualidade das Soluções
-Dijkstra: O algoritmo de Dijkstra teve o melhor desempenho na busca pelo caminho de menor custo, pois ele garante encontrar o caminho ideal em grafos com pesos positivos. Isso é visível nos resultados, onde os caminhos encontrados por Dijkstra tiveram consistentemente o menor custo médio em todas as comparações. Por ser um algoritmo mais complexo, ele expandiu uma quantidade de nós maior que o DFS e BFS em alguns casos, mas a diferença foi mínima.
+Dijkstra: O algoritmo de Dijkstra teve o melhor desempenho na busca pelo caminho de menor custo, pois ele garante 
+encontrar o caminho ideal em grafos com pesos positivos. Isso é visível nos resultados, onde os caminhos encontrados
+ por Dijkstra tiveram consistentemente o menor custo médio em todas as comparações. Por ser um algoritmo mais 
+ complexo, ele expandiu uma quantidade de nós maior que o DFS e BFS em alguns casos, mas a diferença foi mínima.
 
-Busca em Largura (BFS): O BFS se destacou por encontrar o caminho com o menor número de arestas entre a origem e o destino. A análise mostrou que, em cenários de grafo não-ponderado, o BFS seria o mais indicado para encontrar o caminho ótimo. Nos casos de grafos ponderados, o BFS encontrou caminhos com custos iguais ou próximos ao de Dijkstra, mas não há garantia de que ele sempre encontrará o caminho ideal, pois ele não considera o peso das arestas durante a busca. Além disso, o BFS teve o tempo médio de execução mais rápido em todos os cenários.
+Busca em Largura (BFS): O BFS se destacou por encontrar o caminho com o menor número de arestas entre a origem e 
+o destino. A análise mostrou que, em cenários de grafo não-ponderado, o BFS seria o mais indicado para encontrar 
+o caminho ótimo. Nos casos de grafos ponderados, o BFS encontrou caminhos com custos iguais ou próximos ao de 
+Dijkstra, mas não há garantia de que ele sempre encontrará o caminho ideal, pois ele não considera o peso das 
+arestas durante a busca. Além disso, o BFS teve o tempo médio de execução mais rápido em todos os cenários.
 
-Busca em Profundidade (DFS): O DFS se mostrou o menos eficiente para a busca do caminho de menor custo, pois ele explora o grafo em profundidade sem levar em conta os custos das arestas. Essa característica frequentemente o levou a encontrar caminhos subótimos com custos significativamente mais altos do que os de Dijkstra e BFS, como visto no percurso de Curitiba para Salvador. No entanto, o DFS se mostrou muito eficiente em termos de nós expandidos e tempo de execução.
+Busca em Profundidade (DFS): O DFS se mostrou o menos eficiente para a busca do caminho de menor custo, pois 
+ele explora o grafo em profundidade sem levar em conta os custos das arestas. Essa característica frequentemente 
+o levou a encontrar caminhos subótimos com custos significativamente mais altos do que os de Dijkstra e BFS, 
+como visto no percurso de Curitiba para Salvador. No entanto, o DFS se mostrou muito eficiente em termos de nós
+ expandidos e tempo de execução.
 
 Análise Assintótica (Notação Big-O)
-Algoritmo de Dijkstra: A complexidade de tempo de Dijkstra é O(E log V), onde E é o número de arestas e V é o número de vértices. Isso ocorre porque o algoritmo examina cada aresta e cada operação de heap leva tempo O(log V).
+Algoritmo de Dijkstra: A complexidade de tempo de Dijkstra é O(E log V), onde E é o número de arestas e V é o 
+número de vértices. Isso ocorre porque o algoritmo examina cada aresta e cada operação de heap leva tempo O(log V).
 
-Busca em Largura (BFS): A complexidade de tempo do BFS é O(V+E). No pior caso, o algoritmo visita cada vértice e cada aresta uma única vez.
+Busca em Largura (BFS): A complexidade de tempo do BFS é O(V+E). No pior caso, o algoritmo visita cada vértice e 
+cada aresta uma única vez.
 
-Busca em Profundidade (DFS): A complexidade de tempo do DFS também é O(V+E). Ele explora o grafo em profundidade, mas visita cada vértice e aresta apenas uma vez, resultando em uma complexidade linear.
+Busca em Profundidade (DFS): A complexidade de tempo do DFS também é O(V+E). Ele explora o grafo em profundidade, 
+mas visita cada vértice e aresta apenas uma vez, resultando em uma complexidade linear.
