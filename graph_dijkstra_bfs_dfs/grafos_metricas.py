@@ -2,9 +2,9 @@ import networkx as nx
 import random
 import time
 import statistics
+import matplotlib.pyplot as plt
 
 # Importar as implementações dos algoritmos dos arquivos separados
-# Certifique-se de que esses arquivos estão na mesma pasta
 from dijkstra_metrics import dijkstra
 from bfs_metrics import bfs
 from dfs_metrics import dfs
@@ -75,6 +75,57 @@ def save_big_o_analysis(file):
     file.write("    - Dijkstra e ideal para encontrar o caminho mais curto em grafos com pesos positivos. Sua complexidade e sensivel ao numero de arestas.\n")
     file.write("    - DFS e BFS sao mais simples e garantem encontrar um caminho. O BFS encontra o caminho mais curto em termos de numero de arestas (sem pesos), enquanto o DFS e eficiente em termos de memoria.\n")
 
+def create_plots(results):
+    """Cria e salva gráficos comparativos das métricas."""
+    
+    # Extrair os nomes dos algoritmos
+    algorithms = list(results[list(results.keys())[0]].keys())
+    
+    # Preparar dados para os plots
+    plot_data = {
+        'Custo Medio': {},
+        'Nos Expandidos Medio': {},
+        'Tempo Medio': {}
+    }
+    
+    for metric_name in plot_data.keys():
+        plot_data[metric_name] = {algo: [] for algo in algorithms}
+    
+    case_labels = []
+    
+    for (start_node, end_node), algos in results.items():
+        case_labels.append(f"{start_node} para {end_node}")
+        for algo_name, metrics in algos.items():
+            if metrics['costs']:
+                plot_data['Custo Medio'][algo_name].append(statistics.mean(metrics['costs']))
+                plot_data['Nos Expandidos Medio'][algo_name].append(statistics.mean(metrics['expanded_nodes']))
+                plot_data['Tempo Medio'][algo_name].append(statistics.mean(metrics['times']) * 1000) # Converte para milissegundos
+            else:
+                # Caso o algoritmo não encontre um caminho
+                plot_data['Custo Medio'][algo_name].append(0)
+                plot_data['Nos Expandidos Medio'][algo_name].append(0)
+                plot_data['Tempo Medio'][algo_name].append(0)
+
+    # Plotar os gráficos
+    x = range(len(case_labels))
+    width = 0.25  # Largura das barras
+
+    for i, (metric_name, metric_data) in enumerate(plot_data.items()):
+        fig, ax = plt.subplots(figsize=(12, 6))
+        
+        for j, (algo_name, values) in enumerate(metric_data.items()):
+            offset = (j - len(algorithms) / 2 + 0.5) * width
+            ax.bar([pos + offset for pos in x], values, width, label=algo_name)
+        
+        ax.set_ylabel(metric_name)
+        ax.set_title(f"Comparação de {metric_name} por Caso de Teste")
+        ax.set_xticks(x)
+        ax.set_xticklabels(case_labels, rotation=45, ha="right")
+        ax.legend()
+        plt.tight_layout()
+        plt.savefig(f"{metric_name.replace(' ', '_')}_comparativo.png")
+        plt.show()
+
 def save_results_to_file(results, filename="analise_desempenho_grafos.txt"):
     # Adicionando a codificação UTF-8 para evitar problemas de caracteres
     with open(filename, 'w', encoding='utf-8') as f:
@@ -140,3 +191,6 @@ for start_node, end_node in test_cases:
 
 # Salva os resultados em um arquivo de texto
 save_results_to_file(results)
+
+# Cria e salva os plots
+create_plots(results)
